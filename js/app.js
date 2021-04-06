@@ -11,7 +11,7 @@ const addActive = (tabLink) => {
 
 const header = () => {
   let headerContainer = document.createElement('div')
-  headerContainer.classList.add('ui', 'inverted', 'segment')
+  headerContainer.classList.add('ui', 'inverted', 'segment', 'basic')
   let nav = document.createElement('nav')
   nav.classList.add('ui', 'inverted', 'secondary', 'menu')
   let tabs = ['My Portfolio', 'About Me', 'My Projects', 'My Hemburgaa']
