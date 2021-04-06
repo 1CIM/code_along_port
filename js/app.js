@@ -14,7 +14,7 @@ const header = () => {
   headerContainer.classList.add('ui', 'inverted', 'segment')
   let nav = document.createElement('nav')
   nav.classList.add('ui', 'inverted', 'secondary', 'menu')
-  let tabs = ['My Portfolio', 'About Me', 'My Projects']
+  let tabs = ['My Portfolio', 'About Me', 'My Projects', 'My Hemburgaa']
   tabs.forEach(tab => {
     let tabLink = document.createElement('a')
     tabLink.classList.add('item')
@@ -34,6 +34,8 @@ const startPage = async (tab) => {
     mainContainer.innerHTML = '<h2>About Me</h2> <p>Stuff about me</p>'
   } else if (tab === 'My Projects') {
     await displayProjects()
+  } else if (tab === 'My Hemburgaa') {
+    await displayHamburger()
   } else {
     mainContainer.innerHTML = '<h2>Hello World</h2>'
   }
@@ -70,6 +72,20 @@ const displayProjects = async () => {
     projectsContainer.appendChild(card)
   })
   mainContainer.appendChild(projectsContainer)
+}
+
+const fetchBurger = async () => {
+  let response = await (await fetch('./js/burgers.json')).json()
+  return response.burgers[0]
+}
+
+const displayHamburger = async () => {
+  let burger = await fetchBurger()
+  mainContainer.innerHTML = ''
+  const burgerImg = document.createElement('img')
+  burgerImg.classList.add('full_burger')
+  burgerImg.src = burger.image1
+  mainContainer.appendChild(burgerImg)
 }
 
 const footer = () => {

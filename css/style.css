@@ -10,3 +10,9 @@ footer {
   margin-top: 0;
   text-align: center;
 }
+
+.full_burger {
+  display: flex;
+  margin: auto;
+  width: 100%;
+}
